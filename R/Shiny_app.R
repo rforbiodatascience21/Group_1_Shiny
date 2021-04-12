@@ -18,11 +18,6 @@ library(shinythemes)
 library(usethis)
 library(devtools)
 
-#library(remotes)
-#library(usethis)
-
-library(remotes)
-
 # get group 1 rpackage 
 # loading require package usethis 
 remotes::install_github("rforbiodatascience21/2021_group_1_rpackage", force = TRUE) #rforbiodatascience21/2021_group_1_rpackage
@@ -32,16 +27,16 @@ library("lab08aSimpleRpackage")
 ui <- fluidPage(theme = shinytheme("cerulean"),
                 navbarPage(
                   # theme = "cerulean",  # <--- To use a theme, uncomment this
-                  "My first app",
+                  "Random DNA and RNA seq generator ",
                   tabPanel("Generate DNA seq",
                            sidebarPanel(
-                             tags$h3("Input desired length for DNA seq:"),
+                             tags$h5("Input desired length for DNA seq:"),
                              numericInput("size", "DNA length:",11, 3, 100 ), # DNA length input 
                              
                              
                            ), # sidebarPanel
                            mainPanel(
-                             h1("Header 1"),
+                             
                              
                              h4("random DNA seq:"),
                              verbatimTextOutput("dna_ran"),
@@ -51,12 +46,12 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                   ), # Navbar 2, tabPanel
                   tabPanel("Generate RNA seq:",
                            sidebarPanel(
-                             tags$h3("Input desired length for RNA seq:"),
+                             tags$h5("Input desired length for RNA seq:"),
                              numericInput("size_RNA", "RNA length:",11, 3, 100 ), # RNA length input 
                              
                            ), # sidebarPanel
                            mainPanel(
-                             h1("Header 1"),
+                             
                              
                              h4("random RNA seq:"),
                              verbatimTextOutput("rna_ran"),
