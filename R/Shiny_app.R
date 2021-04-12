@@ -15,9 +15,14 @@
 # install.packages("shinythemes")
 library(shiny)
 library(shinythemes)
+library(usethis)
 library(devtools)
+<<<<<<< HEAD
 #library(remotes)
 #library(usethis)
+=======
+library(remotes)
+>>>>>>> 449c79090c93efe4bca6101e04e79a1f720ab9ce
 # get group 1 rpackage 
 # loading require package usethis 
 remotes::install_github("rforbiodatascience21/2021_group_1_rpackage", force = TRUE) #rforbiodatascience21/2021_group_1_rpackage
