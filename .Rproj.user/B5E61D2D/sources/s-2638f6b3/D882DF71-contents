@@ -15,14 +15,6 @@
 # install.packages("shinythemes")
 library(shiny)
 library(shinythemes)
-library(devtools)
-library(remotes)
-library(usethis)
-# get group 1 rpackage 
-# loading require package usethis 
-remotes::install_github("rforbiodatascience21/2021_group_1_rpackage") #rforbiodatascience21/2021_group_1_rpackage
-library("lab08aSimpleRpackage")
-
 
 
 # Define UI
@@ -32,16 +24,16 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                   "My first app",
                   tabPanel("Navbar 1",
                            sidebarPanel(
-                             tags$h3("Input desired length for DNA seq:"),
-                             numericInput("length", "DNA length:",11, 3, 100 ), # DNA length input 
-                             #textInput("txt2", "Surname:", ""),
+                             tags$h3("Input:"),
+                             textInput("txt1", "Given Name:", ""),
+                             textInput("txt2", "Surname:", ""),
                              
                            ), # sidebarPanel
                            mainPanel(
                              h1("Header 1"),
                              
                              h4("Output 1"),
-                             verbatimTextOutput("dna_ran"),
+                             verbatimTextOutput("txtout"),
                              
                            ) # mainPanel
                            
@@ -56,9 +48,8 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
 # Define server function  
 server <- function(input, output) {
   
-  dna_ran = random_dna(l=int(input$length))
-  output$dna_ran <- renderText({
-    dna_ran
+  output$txtout <- renderText({
+    paste( input$txt1, input$txt2, sep = " " )
   })
 } # server
 
