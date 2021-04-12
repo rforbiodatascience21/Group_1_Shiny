@@ -37,7 +37,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                   tabPanel("Navbar 1",
                            sidebarPanel(
                              tags$h3("Input desired length for DNA seq:"),
-                             numericInput("length", "DNA length:",11, 3, 100 ), # DNA length input 
+                             numericInput("size", "DNA length:",11, 3, 100 ), # DNA length input 
                              #textInput("txt2", "Surname:", ""),
                              
                            ), # sidebarPanel
@@ -59,11 +59,18 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
 
 # Define server function  
 server <- function(input, output){
-  dna_ran = random_dna(l=input$length)
+  
+  #dna_seq = random_dna(l=input$size)
+  #dna_seq = reactiveVal(dna_seq) 
+  #  dna_seq = random_dna(l=input$size)
+    
+  #})
   
   output$dna_ran <- renderText({
-    dna_ran
+    random_dna(l=input$size)
   })
+  
+  
 } # server
 
 
