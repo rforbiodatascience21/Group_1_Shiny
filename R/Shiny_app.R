@@ -20,10 +20,14 @@ library(remotes)
 library(usethis)
 # get group 1 rpackage 
 # loading require package usethis 
-remotes::install_github("rforbiodatascience21/2021_group_1_rpackage") #rforbiodatascience21/2021_group_1_rpackage
+remotes::install_github("rforbiodatascience21/2021_group_1_rpackage", force = TRUE) #rforbiodatascience21/2021_group_1_rpackage
 library("lab08aSimpleRpackage")
 
-
+random_dna <- function(l){
+  nucleotides <- sample(c("A", "T", "G", "C"), size = l, replace = TRUE)
+  dna = paste0(nucleotides, collapse = "")
+  return(dna)
+}
 
 # Define UI
 ui <- fluidPage(theme = shinytheme("cerulean"),
@@ -54,9 +58,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
 
 
 # Define server function  
-server <- function(input, output) {
+server <- function(input, output){
+  dna_ran = random_dna(l=input$length)
   
-  dna_ran = random_dna(l=int(input$length))
   output$dna_ran <- renderText({
     dna_ran
   })
