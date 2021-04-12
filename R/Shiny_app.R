@@ -16,25 +16,19 @@
 library(shiny)
 library(shinythemes)
 library(devtools)
-library(remotes)
-library(usethis)
+#library(remotes)
+#library(usethis)
 # get group 1 rpackage 
 # loading require package usethis 
 remotes::install_github("rforbiodatascience21/2021_group_1_rpackage", force = TRUE) #rforbiodatascience21/2021_group_1_rpackage
 library("lab08aSimpleRpackage")
-
-random_dna <- function(l){
-  nucleotides <- sample(c("A", "T", "G", "C"), size = l, replace = TRUE)
-  dna = paste0(nucleotides, collapse = "")
-  return(dna)
-}
 
 # Define UI
 ui <- fluidPage(theme = shinytheme("cerulean"),
                 navbarPage(
                   # theme = "cerulean",  # <--- To use a theme, uncomment this
                   "My first app",
-                  tabPanel("Navbar 1",
+                  tabPanel("Generate DNA seq",
                            sidebarPanel(
                              tags$h3("Input desired length for DNA seq:"),
                              numericInput("size", "DNA length:",11, 3, 100 ), # DNA length input 
@@ -50,8 +44,8 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                            ) # mainPanel
                            
                   ), # Navbar 1, tabPanel
-                  tabPanel("Navbar 2", "This panel is intentionally left blank"),
-                  tabPanel("Navbar 3", "This panel is intentionally left blank")
+                  tabPanel("Generate DNA seq", "This panel is intentionally left blank"),
+                  #tabPanel("Navbar 3", "This panel is intentionally left blank")
                   
                 ) # navbarPage
 ) # fluidPage
@@ -60,11 +54,6 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
 # Define server function  
 server <- function(input, output){
   
-  #dna_seq = random_dna(l=input$size)
-  #dna_seq = reactiveVal(dna_seq) 
-  #  dna_seq = random_dna(l=input$size)
-    
-  #})
   
   output$dna_ran <- renderText({
     random_dna(l=input$size)
