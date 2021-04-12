@@ -49,7 +49,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                   
                 ) # navbarPage
 ) # fluidPage
-
+  
 
 # Define server function  
 server <- function(input, output){
