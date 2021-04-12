@@ -1,5 +1,5 @@
 ---
-title: "shiny app"
+title: "Shiny app"
 output: github_document
 ---
 
@@ -8,3 +8,5 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Creation of a Shiny app
+
+In this project, a shiny app will be created to work with DNA sequences 
