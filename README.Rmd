@@ -1,0 +1,10 @@
+---
+title: "shiny app"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Creation of a Shiny app
